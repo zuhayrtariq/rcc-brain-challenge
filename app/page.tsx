@@ -1,204 +1,171 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { IntentCard } from "@/components/home/IntentCard";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Sparkles, MessageSquare, Zap } from "lucide-react";
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Red Clay Brain – Take-Home Design Challenge
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              <div className="h-20 w-20 rounded-2xl bg-gradient-to-br from-[#9B2D1F] to-[#7A241A] flex items-center justify-center shadow-xl">
+                <Sparkles className="h-10 w-10 text-white" />
+              </div>
+              <div className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-green-500 border-2 border-white dark:border-gray-900"></div>
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            RCC Brain
           </h1>
-          <div className="flex justify-center items-center gap-6 text-lg text-gray-600 dark:text-gray-300 mb-6">
-            <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full font-semibold">
-              Duration: 48 Hours
-            </span>
-          </div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Build a polished AI chat interface. The backend is ready - your job is to create an amazing frontend experience!
+
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Your intelligent OUAF assistant. Ask questions, get insights, and
+            explore documentation with AI-powered conversations.
           </p>
-        </div>
 
-        {/* Tech Stack */}
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Tech Stack</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white dark:bg-gray-700 rounded px-3 py-2 text-center">Next.js (App Router)</div>
-            <div className="bg-white dark:bg-gray-700 rounded px-3 py-2 text-center">TypeScript</div>
-            <div className="bg-white dark:bg-gray-700 rounded px-3 py-2 text-center">Tailwind CSS</div>
-            <div className="bg-white dark:bg-gray-700 rounded px-3 py-2 text-center">AWS Bedrock</div>
-          </div>
-        </div>
+          {/* Quick Start Input */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-lg mx-auto mb-12"
+          >
+            <form
+              action="/chat"
+              className="flex items-center gap-3 p-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700"
+            >
+              <Input
+                name="q"
+                type="text"
+                placeholder="Ask me anything about OUAF..."
+                className="flex-1 border-0 bg-transparent focus:ring-0 text-base"
+              />
+              <Button type="submit" className="rounded-xl px-6">
+                <MessageSquare className="h-4 w-4 mr-2" />
+                Chat
+              </Button>
+            </form>
+          </motion.div>
 
-        {/* Challenge Overview */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-            Challenge Overview
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center gap-8 mb-16"
+          >
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                ⚡
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-300">
+                Real-time streaming
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                🎯
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-300">
+                OUAF specialized
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                🚀
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-300">
+                Always available
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Intent Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-12"
+        >
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
+            Popular conversations
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-            Build a frontend for the AI assistant. The backend API is ready and can accept chat messages and return AI agent responses.
-          </p>
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-4 rounded mb-6">
-            <p className="text-yellow-800 dark:text-yellow-200 font-semibold">
-              The AWS Bedrock Agent will only be accessible for 48 hours!
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <IntentCard
+              title="📚 Summarize Document"
+              prompt="Summarize this OUAF document for me"
+              description="Get quick summaries of OUAF documentation"
+              icon={<span className="text-lg">📚</span>}
+            />
+            <IntentCard
+              title="📊 Project Status"
+              prompt="What's the current status of the OUAF implementation?"
+              description="Check progress and updates on OUAF projects"
+              icon={<span className="text-lg">📊</span>}
+            />
+            <IntentCard
+              title="💻 Explain Code"
+              prompt="Help me understand this OUAF code snippet"
+              description="Get explanations for OUAF code and functions"
+              icon={<span className="text-lg">💻</span>}
+            />
+            <IntentCard
+              title="💡 Brainstorm Ideas"
+              prompt="Brainstorm implementation approaches for this OUAF feature"
+              description="Explore different ways to implement features"
+              icon={<span className="text-lg">💡</span>}
+            />
+            <IntentCard
+              title="❓ Technical Q&A"
+              prompt="I have a technical question about OUAF"
+              description="Ask detailed technical questions"
+              icon={<span className="text-lg">❓</span>}
+            />
+            <IntentCard
+              title="🔍 Deep Dive"
+              prompt="Give me a deep dive into OUAF architecture"
+              description="Explore OUAF architecture in detail"
+              icon={<span className="text-lg">🔍</span>}
+            />
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center"
+        >
+          <div className="bg-gradient-to-r from-[#9B2D1F] to-[#7A241A] rounded-3xl p-8 text-white">
+            <Zap className="h-12 w-12 mx-auto mb-4 opacity-90" />
+            <h3 className="text-2xl font-bold mb-4">Ready to get started?</h3>
+            <p className="text-lg opacity-90 mb-6">
+              Jump into a conversation and experience AI-powered OUAF assistance
             </p>
+            <Button
+              asChild
+              variant="secondary"
+              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3 text-lg font-semibold rounded-xl"
+            >
+              <a href="/chat">Start chatting now →</a>
+            </Button>
           </div>
-          
-          <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-6 rounded">
-            <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 mb-3">
-              📋 Check the README.md for Complete Task Instructions
-            </h3>
-            <p className="text-blue-700 dark:text-blue-300">
-              All challenge requirements, evaluation criteria, and detailed instructions are available in the README.md file. 
-              Please review it carefully before starting your development.
-            </p>
-          </div>
-        </div>
-
-        {/* API Reference */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-            Backend API Reference
-          </h2>
-          
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-3">
-                Available Endpoints
-              </h3>
-              <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1">
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">GET /api/health</code> - Health check</li>
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">POST /api/chat</code> - Chat with AI agent</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-3">
-                Request Format
-              </h3>
-              <div className="bg-gray-100 dark:bg-gray-700 rounded p-4">
-                <pre className="text-sm overflow-x-auto">
-{`interface ChatRequest {
-  message: string;
-  stream?: boolean;   // false for block, true for streaming
-}`}
-                </pre>
-              </div>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-3">
-                  Block Response
-                </h3>
-                <div className="bg-gray-100 dark:bg-gray-700 rounded p-4">
-                  <pre className="text-sm overflow-x-auto">
-{`{
-  "success": true,
-  "data": "AI response here...",
-  "timestamp": "2025-08-06T10:30:00Z"
-}`}
-                  </pre>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-3">
-                  Stream Response (SSE)
-                </h3>
-                <div className="bg-gray-100 dark:bg-gray-700 rounded p-4">
-                  <pre className="text-sm overflow-x-auto">
-{`event: start
-data: {"type":"start"}
-
-event: chunk  
-data: {"type":"chunk","content":"Hello"}
-
-event: complete
-data: {"type":"complete"}`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Getting Started */}
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold mb-6">Getting Started</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Prerequisites</h3>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Node.js 18+</li>
-                <li>npm or yarn</li>
-                <li>Code editor</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Setup Commands</h3>
-              <div className="bg-gray-200 dark:bg-gray-700 rounded p-4 font-mono text-sm">
-                <div>npm install</div>
-                <div>cp .env.example .env</div>
-                <div>npm run dev</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Tips for Success */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-            Tips for Success
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-              <li><strong>Start with streaming implementation</strong> - it is the core functionality</li>
-              <li><strong>Focus on user experience</strong> - smooth animations and clear feedback</li>
-              <li><strong>Handle edge cases</strong> - network issues, empty states, loading states</li>
-            </ul>
-            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-              <li><strong>Keep components small</strong> - easier to test and maintain</li>
-              <li><strong>Use TypeScript effectively</strong> - leverage types for better DX</li>
-              <li><strong>Test your streaming</strong> - use browser dev tools to monitor SSE</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Environment Variables */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-            Environment Variables Required
-          </h2>
-          
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
-            <p className="text-yellow-800 dark:text-yellow-200 mb-4 font-semibold">
-              These are already configured for the challenge:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-sm">AWS_REGION</code></li>
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-sm">AWS_ACCESS_KEY_ID</code></li>
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-sm">AWS_SECRET_ACCESS_KEY</code></li>
-              </ul>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-sm">BEDROCK_AGENT_ID</code></li>
-                <li><code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-sm">BEDROCK_AGENT_ALIAS_ID</code></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-12 p-8 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Good luck!</h2>
-          <p className="text-lg mb-2">
-            We are excited to see your creative approach to this challenge.
-          </p>
-          <p className="text-sm opacity-75">
-            For questions or clarifications, please reach out to the hiring team.
-          </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
